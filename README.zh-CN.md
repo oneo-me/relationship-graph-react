@@ -114,7 +114,7 @@ bun test
 bun run build
 ```
 
-`example/` 是一个消费构建产物的 Vite 应用，用于验证 worker 产物与发布导出：
+`example/` 是一个消费构建产物的 Vite 应用，用于验证 worker 产物与发布导出。它带有一个开发工具栏，用于批量生成节点、重置图谱、适应视图和切换主题：
 
 ```sh
 bun run example:install

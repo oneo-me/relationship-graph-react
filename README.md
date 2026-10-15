@@ -114,7 +114,7 @@ bun test
 bun run build
 ```
 
-`example/` is a Vite app that consumes the built package, which verifies worker emission and the published exports:
+`example/` is a Vite app that consumes the built package, which verifies worker emission and the published exports. It carries a dev toolbar for seeding nodes, resetting the graph, fitting the view and switching theme:
 
 ```sh
 bun run example:install

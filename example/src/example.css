@@ -1,0 +1,114 @@
+/*
+ * Layout for the example harness. The graph fills the container; the dev
+ * toolbar floats above it. The toolbar stops just left of the package's
+ * top-right settings button (2rem wide, 1rem from the edge on wide screens).
+ */
+
+.example-root {
+  height: 100%;
+}
+
+.example-graph {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.example-toolbar {
+  /*
+   * The toolbar floats over the canvas but lives outside `.rg-root`, so it
+   * redefines the `--rg-*` values the package exposes. Keep them in sync with
+   * src/styles.css.
+   */
+  --rg-secondary: hsl(240 4.8% 95.9%);
+  --rg-secondary-foreground: hsl(240 5.9% 10%);
+  --rg-foreground: hsl(240 10% 3.9%);
+  --rg-muted-foreground: hsl(240 3.8% 46.1%);
+
+  position: absolute;
+  top: 0.5rem;
+  right: calc(0.5rem + 2rem + 0.5rem);
+  left: 0.5rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .example-toolbar {
+    top: 1rem;
+    right: calc(1rem + 2rem + 0.5rem);
+    left: 1rem;
+  }
+}
+
+.example-toolbar[data-theme='dark'] {
+  --rg-secondary: hsl(240 3.7% 15.9%);
+  --rg-secondary-foreground: hsl(0 0% 98%);
+  --rg-foreground: hsl(0 0% 98%);
+  --rg-muted-foreground: hsl(240 5% 64.9%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .example-toolbar[data-theme='auto'] {
+    --rg-secondary: hsl(240 3.7% 15.9%);
+    --rg-secondary-foreground: hsl(0 0% 98%);
+    --rg-foreground: hsl(0 0% 98%);
+    --rg-muted-foreground: hsl(240 5% 64.9%);
+  }
+}
+
+.example-cluster {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 0;
+  pointer-events: auto;
+}
+
+.example-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  padding: 0 0.625rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background-color: var(--rg-secondary);
+  color: var(--rg-secondary-foreground);
+  font: inherit;
+  font-size: 0.8125rem;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms ease-out;
+}
+
+.example-button:hover {
+  background-color: color-mix(in oklab, var(--rg-secondary) 80%, transparent);
+}
+
+.example-button:focus-visible {
+  outline: 2px solid var(--rg-foreground);
+  outline-offset: 2px;
+}
+
+.example-button-icon {
+  width: 2rem;
+  padding: 0;
+}
+
+.example-button-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.example-count {
+  margin-left: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--rg-muted-foreground);
+  white-space: nowrap;
+}
