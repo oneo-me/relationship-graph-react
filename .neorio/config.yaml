@@ -1,0 +1,16 @@
+tasks:
+  - label: Run
+    group: run
+    command: bun
+    args: [run, "example:dev"]
+  - label: Build
+    group: build
+    command: bun
+    args: [run, build]
+    outputDirectory: dist
+  - label: Test
+    command: bun
+    args: [test]
+  - label: Typecheck
+    command: bun
+    args: [run, typecheck]
